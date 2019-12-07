@@ -62,7 +62,7 @@ export function loadEditForm(ctx){
 
 export function edit(ctx){
     const { location, dateTime, description, imageURL, organizer, likes, id } = ctx.params;
-    const header = { location, date: dateTime, description, imageURL, organizer, likes };
+    const header = { location, date: dateTime, description, imageURL, organizer, likes: Number(likes) };
 
     put('appdata', `treks/${id}`, 'Kinvey', header)
         .then(x => redirect(ctx, '/'))
