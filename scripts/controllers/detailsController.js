@@ -1,6 +1,7 @@
 import { get } from "../requester.js";
 import { getSessionInfo } from "./sessionController.js";
 import { partials } from "../partials/partials.js";
+import { redirect } from "./redirect.js";
 
 export function loadDetails(ctx) {
     getSessionInfo(ctx)
@@ -18,4 +19,8 @@ export function loadDetails(ctx) {
                 this.partial('/components/adventure/details.hbs');
             })
     });
+}
+
+export function closeTreck(ctx){
+    redirect(ctx, '/')
 }
