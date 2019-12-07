@@ -1,6 +1,7 @@
-import { getSessionInfo } from "./sessionController.js";
+import { getSessionInfo, setSessionInfo } from "./sessionController.js";
 import { post } from "../requester.js";
 import { partials } from "../partials/partials.js";
+import { redirectAfterFiveSec } from "./redirect.js";
 
 export function loadRegisterForm(ctx){
     getSessionInfo(ctx);
@@ -8,4 +9,16 @@ export function loadRegisterForm(ctx){
     this.loadPartials(partials).then(function () {
         this.partial('./components/register/register.hbs')
     });
+}
+
+export function createUser(ctx){
+    const { username, password, repeatPassword } = ctx.params;
+    if ( username.length > 1 && password.length > 1 && password === repeatPassword) {
+        post('user', '', 'Basic', { username, password })
+            .then(x => {
+                setSessionInfo(x);
+                redirectAfterFiveSec(ctx, '/');
+            })
+            .catch(console.error)
+    }
 }
