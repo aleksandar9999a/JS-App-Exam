@@ -1,22 +1,17 @@
+{{>nav}}
 <div class="row single-trek-details text-center">
     <div class="col-md-12 text-center overflow-hidden">
         <img class="details-img"
-            src="https://s3.us-east-1.wasabisys.com/mts-wp-uploads/trips/trip_hero8_kha_2880x1260.jpg" />
+            src={{imageUrl}} />
         <div class="overflow-hidden my-3 p-3">
-            <h2 class="display-5">Everest Base Camp</h2>
+            <h2 class="display-5">{{location}}</h2>
             <p class="infoType">Description:</p>
-            <p class="trek-description">Experience beautiful Tengboche Monastery, local Sherpa hospitality, and the
-                serenity
-                of Buddhist culture as you trek to the top of Kala Patar. Here, behold the great Mount Everest-an epic
-                view
-                matched only by your incredible sense of accomplishment-before arriving at the legendary Mt. Everest
-                Base Camp
-                at an elevation of 17,600'.</p>
-            <p class="infoType">Date: <large>26.08.2020</large>
+            <p class="trek-description">{{description}}</p>
+            <p class="infoType">Date: <large>{{date}}</large>
             </p>
-            <p class="infoType">Likes: <large>0</large>
+            <p class="infoType">Likes: <large>{{likes}}</large>
             </p>
-            <p class="infoType">Organizer: <large>username</large>
+            <p class="infoType">Organizer: <large>{{organizer}}</large>
             </p>
         </div>
         <div class="buttons-together">
@@ -72,3 +67,4 @@
         </div>
     </div>
 </div>
+{{>footer}}
