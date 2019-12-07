@@ -29,7 +29,7 @@ function makeAuth(authType = 'Basic'){
     if (authType === 'Basic') {
         return `Basic ${btoa(`${kinveyAppKey}:${kinveyAppSecret}`)}`
     }
-    return `Kinvey ${sessionStorage.getItem('authtoken')}`
+    return `Kinvey ${localStorage.getItem('authtoken')}`
 }
 
 function createHeader(method, authType, data){

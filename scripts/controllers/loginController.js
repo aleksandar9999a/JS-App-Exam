@@ -1,7 +1,7 @@
 import { getSessionInfo, setSessionInfo } from "./sessionController.js";
 import { post } from "../requester.js";
 import { partials } from "../partials/partials.js";
-import { redirectAfterFiveSec } from "./redirect.js";
+import { redirect } from "./redirect.js";
 
 export function loadLoginForm(ctx){
     getSessionInfo(ctx);
@@ -18,7 +18,7 @@ export function login(ctx){
         post('user', 'login', 'Basic', { username, password })
             .then(x => {
                 setSessionInfo(x);
-                redirectAfterFiveSec(ctx, '/');
+                redirect(ctx, '/');
             })
     }
 }

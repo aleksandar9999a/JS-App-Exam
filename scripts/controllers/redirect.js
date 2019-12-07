@@ -1,5 +1,3 @@
-export function redirectAfterFiveSec(ctx, page){
-    setTimeout(function () {
-        ctx.redirect(page);
-    }, 5000)
+export function redirect(ctx, page){
+    ctx.redirect(page);
 }

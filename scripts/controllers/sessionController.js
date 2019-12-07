@@ -1,16 +1,16 @@
 export function getSessionInfo(ctx) {
-    ctx.loggedIn = sessionStorage.getItem('authtoken') !== null;
+    ctx.loggedIn = localStorage.getItem('authtoken') !== null;
     if (ctx.loggedIn) {
-        ctx.username = sessionStorage.getItem('username');
+        ctx.username = localStorage.getItem('username');
     }
 }
 
 export function setSessionInfo(data) {
-    sessionStorage.setItem('authtoken', data._kmd.authtoken);
-    sessionStorage.setItem('username', data.username);
-    sessionStorage.setItem('id', data._id);
+    localStorage.setItem('authtoken', data._kmd.authtoken);
+    localStorage.setItem('username', data.username);
+    localStorage.setItem('id', data._id);
 }
 
 export function clearSessionData(){
-    sessionStorage.clear();
+    localStorage.clear();
 }
