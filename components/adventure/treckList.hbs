@@ -1,15 +1,8 @@
 {{>nav}}
 {{#if foundTreks}}
-    <div id="treks-list">
-        <a href="#" class="card overflow-hidden treksPlaceholder trek-details" style="width: 20rem; height: 18rem;">
-            <div class="card-body">
-                <p class="card-text">Everest Base Camp</p>
-            </div>
-            <img class="card-image"
-                src="https://s3.us-east-1.wasabisys.com/mts-wp-uploads/trips/trip_hero8_kha_2880x1260.jpg"
-                alt="Card image cap">
-        </a>
-    </div>
+    {{#each treks}}
+        {{> trek }}
+    {{/each}}
 {{else}}
     <div class="container">
         <div class="row">
