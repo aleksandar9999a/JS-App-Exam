@@ -58,3 +58,13 @@ export function loadEditForm(ctx){
             .catch(console.error)
     });
 }
+
+export function edit(ctx){
+    console.log(ctx);
+    const { location, dateTime, description, imageURL, organizer, likes, id } = ctx.params;
+    const header = { location, date: dateTime, description, imageURL, organizer, likes };
+
+    put('appdate', `treks/${id}`, 'Kinvey', header)
+        .then(x => redirect(ctx, '/'))
+        .catch(console.error)
+}

@@ -2,7 +2,7 @@ import { loadHome } from './controllers/homeController.js';
 import { loadRegisterForm, createUser } from './controllers/registerController.js';
 import { loadLoginForm, login } from './controllers/loginController.js';
 import { logout } from './controllers/logoutController.js';
-import { loadDetails, closeTreck, like, loadEditForm } from './controllers/detailsController.js';
+import { loadDetails, closeTreck, like, loadEditForm, edit } from './controllers/detailsController.js';
 import { loadUserPage } from './controllers/userPageController.js';
 import { loadCreateTrekForm, createTrek } from './controllers/createFormController.js';
 
@@ -23,6 +23,8 @@ const app = Sammy('body', function () {
     this.post('/register', createUser)
     this.post('/login', login)
     this.post('/createTrek', createTrek)
+
+    this.put('/edit/:id', edit)
 })
 
 app.run();
