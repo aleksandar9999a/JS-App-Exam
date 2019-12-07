@@ -18,5 +18,4 @@ export function loadDetails(ctx) {
                 this.partial('/components/adventure/details.hbs');
             })
     });
-
 }
