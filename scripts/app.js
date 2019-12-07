@@ -16,7 +16,7 @@ const app = Sammy('body', function () {
     this.get('/userPage', loadUserPage)
     this.get('/createTrek', loadCreateTrekForm)
     this.get('/details/:id', loadDetails)
-    this.get('/closeTreck', closeTreck)
+    this.get('/closeTreck/:id', closeTreck)
     
     this.post('/register', createUser)
     this.post('/login', login)

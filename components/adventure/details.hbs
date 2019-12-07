@@ -1,8 +1,7 @@
 {{>nav}}
 <div class="row single-trek-details text-center">
     <div class="col-md-12 text-center overflow-hidden">
-        <img class="details-img"
-            src={{imageUrl}} />
+        <img class="details-img" src={{imageUrl}} />
         <div class="overflow-hidden my-3 p-3">
             <h2 class="display-5">{{location}}</h2>
             <p class="infoType">Description:</p>
@@ -15,6 +14,7 @@
             </p>
         </div>
         <div class="buttons-together">
+            {{#if myTrek}}
             <a class="a-button" href="#">
                 <svg version="1.1" id="edit-button" width="30px" xmlns="http://www.w3.org/2000/svg"
                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 293.129 293.129"
@@ -37,7 +37,7 @@
                 </svg>
                 Edit the trek
             </a>
-            <a class="a-button" href="/closeTreck">
+            <a class="a-button" href="/closeTreck/{{id}}">
                 <svg version="1.1" width="30px" id="remove-button" xmlns="http://www.w3.org/2000/svg"
                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 507.2 507.2"
                     style="enable-background:new 0 0 507.2 507.2;" xml:space="preserve">
@@ -53,6 +53,7 @@
                 </svg>
                 Close the trek
             </a>
+            {{else}}
             <a class="a-button" href="#">
                 <svg version="1.1" width="30px" id="like-button" xmlns="http://www.w3.org/2000/svg"
                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 50 50"
@@ -64,6 +65,7 @@
        c-4.411,0-8,3.589-8,8C7,17.631,6.553,18.078,6,18.078z" />
                 </svg>
                 Like</a>
+            {{/if}}
         </div>
     </div>
 </div>
