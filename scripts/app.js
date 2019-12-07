@@ -3,6 +3,7 @@ import { loadRegisterForm, createUser } from './controllers/registerController.j
 import { loadLoginForm, login } from './controllers/loginController.js';
 import { logout } from './controllers/logoutController.js';
 import { loadDetails } from './controllers/detailsController.js';
+import { loadUserPage } from './controllers/userPageController.js';
 
 const app = Sammy('body', function () {
     this.use('Handlebars', 'hbs');
@@ -11,6 +12,7 @@ const app = Sammy('body', function () {
     this.get('/register', loadRegisterForm)
     this.get('/login', loadLoginForm)
     this.get('/logout', logout)
+    this.get('/userPage', loadUserPage)
 
     this.get('/details/:id', loadDetails)
     
