@@ -1,4 +1,4 @@
-import { get, del } from "../requester.js";
+import { get, del, post, put } from "../requester.js";
 import { getSessionInfo } from "./sessionController.js";
 import { partials } from "../partials/partials.js";
 import { redirect } from "./redirect.js";
@@ -28,4 +28,14 @@ export function closeTreck(ctx){
     del('appdata', `treks/${id}`, 'Kinvey')
         .then(x => redirect(ctx, '/'))
         .catch(console.error)
+}
+
+export function like(ctx){
+    const id = ctx.params.id;
+    get('appdata', `treks/${id}`, 'Kinvey')
+        .then(x => {
+            x.likes = x.likes + 1;
+            put('appdata', `treks/${id}`, 'Kinvey', x)
+                .then(x =>redirect(ctx, `/details/${id}`))
+        })
 }
