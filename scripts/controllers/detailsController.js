@@ -1,4 +1,4 @@
-import { get, del, post, put } from "../requester.js";
+import { get, del, put } from "../requester.js";
 import { getSessionInfo } from "./sessionController.js";
 import { partials } from "../partials/partials.js";
 import { redirect } from "./redirect.js";
@@ -38,4 +38,23 @@ export function like(ctx){
             put('appdata', `treks/${id}`, 'Kinvey', x)
                 .then(x =>redirect(ctx, `/details/${id}`))
         })
+}
+
+export function loadEditForm(ctx){
+    getSessionInfo(ctx)
+    this.loadPartials(partials).then(function () {
+        const id = ctx.params.id;
+        get('appdata', `treks/${id}`, 'Kinvey')
+            .then(x => {
+                ctx.location = x.location;
+                ctx.dateTime = x.date;
+                ctx.description = x.description;
+                ctx.imageURL = x.imageURL;
+                ctx.organizer = x.organizer;
+                ctx.likes = x.likes;
+
+                this.partial('/components/adventure/editForm.hbs');
+            })
+            .catch(console.error)
+    });
 }
