@@ -14,12 +14,14 @@ export function loadUserPage(ctx) {
                         myTreks.push(x.location);
                     }
                 })
-            })
 
-        ctx.username = user;
-        ctx.treksNumber = myTreks.length;
-        ctx.foundTreks = myTreks.length > 0;
-        ctx.treks = myTreks;
-        this.partial('/components/userPage/userPage.hbs');
+                ctx.username = user;
+                ctx.treksNumber = myTreks.length;
+                ctx.foundTreks = myTreks.length > 0;
+                ctx.treks = myTreks;
+                this.partial('/components/userPage/userPage.hbs');
+            })
+            .catch(console.error)
+       
     });
 }

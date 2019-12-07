@@ -10,6 +10,7 @@ const app = Sammy('body', function () {
     this.use('Handlebars', 'hbs');
 
     this.get('/', loadHome)
+    this.get('/index.html', loadHome)
     this.get('/register', loadRegisterForm)
     this.get('/login', loadLoginForm)
     this.get('/logout', logout)
