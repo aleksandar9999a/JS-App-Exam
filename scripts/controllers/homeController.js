@@ -13,12 +13,11 @@ export function loadHome(ctx) {
                     if (x.length > 0) {
                         ctx.foundTreks = true;
                         ctx.treks = x;
-                        console.log(x);
-                        
                     }
 
                     this.partial('./components/adventure/treckList.hbs')
                 })
+                .catch(console.error)
             
         }else{
             this.partial('./components/home/anonHome.hbs')
