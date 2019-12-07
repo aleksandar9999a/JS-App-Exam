@@ -5,7 +5,7 @@ import { partials } from "../partials/partials.js";
 export function loadHome(ctx) {
     getSessionInfo(ctx);
 
-    partials.trek = 'components/adventure/trek.hbs'
+    partials.trek = 'components/adventure/trek.hbs';
     this.loadPartials(partials).then(function () {
         if(localStorage.getItem('authtoken') !== null){
             get('appdata', 'treks', 'Kinvey')
@@ -15,12 +15,12 @@ export function loadHome(ctx) {
                         ctx.treks = x;
                     }
 
-                    this.partial('./components/adventure/treckList.hbs')
+                    this.partial('./components/adventure/treckList.hbs');
                 })
-                .catch(console.error)
+                .catch(console.error);
             
         }else{
-            this.partial('./components/home/anonHome.hbs')
+            this.partial('./components/home/anonHome.hbs');
         }
     });
 }
