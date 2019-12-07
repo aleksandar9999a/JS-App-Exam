@@ -4,7 +4,7 @@ import { loadLoginForm, login } from './controllers/loginController.js';
 import { logout } from './controllers/logoutController.js';
 import { loadDetails } from './controllers/detailsController.js';
 import { loadUserPage } from './controllers/userPageController.js';
-import { loadCreateTrekForm } from './controllers/createFormController.js';
+import { loadCreateTrekForm, createTrek } from './controllers/createFormController.js';
 
 const app = Sammy('body', function () {
     this.use('Handlebars', 'hbs');
@@ -19,6 +19,7 @@ const app = Sammy('body', function () {
     
     this.post('/register', createUser)
     this.post('/login', login)
+    this.post('/createTrek', createTrek)
 })
 
 app.run();
