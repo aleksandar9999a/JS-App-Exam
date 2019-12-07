@@ -6,6 +6,22 @@ export function loadHome(ctx) {
     getSessionInfo(ctx);
 
     this.loadPartials(partials).then(function () {
-        this.partial('./components/home/anonHome.hbs')
+        if(localStorage.getItem('authtoken') !== null){
+            get('appdata', 'treks', 'Kinvey')
+                .then(x => {
+                    
+                    
+                    if (x.length > 0) {
+                        ctx.foundTreks = true;
+
+                        
+                    }
+
+                    this.partial('./components/adventure/treckList.hbs')
+                })
+            
+        }else{
+            this.partial('./components/home/anonHome.hbs')
+        }
     });
 }
